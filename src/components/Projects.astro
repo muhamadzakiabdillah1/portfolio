@@ -1,0 +1,225 @@
+---
+import { Image } from 'astro:assets';
+import SectionMotif from './SectionMotif.astro';
+import fineflowDashboard from '../assets/projects/fineflow-dashboard.png';
+import leadersPoster from '../assets/projects/leaders-poster.png';
+import monthlyHighlights from '../assets/projects/monthly-highlights.png';
+import saveTheDate from '../assets/projects/save-the-date.png';
+import cendekiaRules from '../assets/projects/cendekia-rules-poster.png';
+import riceBowl from '../assets/projects/rice-bowl-promo.png';
+
+const projects = [
+  {
+    slug: 'fineflow',
+    title: 'FineFlow',
+    category: 'ui-ux',
+    categoryLabel: 'UI/UX',
+    year: '2026',
+    description: 'Desain produk finansial (landing page + dashboard) untuk mengatur kuota jajan harian.',
+    descriptionEn: 'Financial product design (landing page + dashboard) to manage daily snack budgets guilt-free.',
+    image: fineflowDashboard,
+    style: 'cover',
+  },
+  {
+    slug: 'introducing-your-new-leaders',
+    title: 'Introducing Your New Leaders',
+    category: 'graphic',
+    categoryLabel: 'Graphic',
+    year: '2026',
+    description: 'Poster pengenalan tim dengan konsep flat-lay photography yang bercerita.',
+    descriptionEn: 'Team introduction poster using a flat-lay photography concept with props that tell a story.',
+    image: leadersPoster,
+    style: 'mat',
+  },
+  {
+    slug: 'monthly-highlights',
+    title: 'Monthly Highlights',
+    category: 'graphic',
+    categoryLabel: 'Graphic',
+    year: '2026',
+    description: 'Konten kalender bulanan sosial media dengan layout grid yang sistematis.',
+    descriptionEn: 'Monthly social media calendar content with a systematic, consistent grid layout.',
+    image: monthlyHighlights,
+    style: 'mat',
+  },
+  {
+    slug: 'save-the-date',
+    title: 'Save the Date',
+    category: 'poster',
+    categoryLabel: 'Poster',
+    year: '2026',
+    description: 'Announcement tanggal acara dengan satu focal point ikon kalender yang bold.',
+    descriptionEn: 'Event date announcement with a bold calendar icon as the single focal point.',
+    image: saveTheDate,
+    style: 'mat',
+  },
+  {
+    slug: 'poster-aturan-cendekia-school',
+    title: 'Poster Aturan Kegiatan — Cendekia School',
+    titleEn: 'Cendekia School Event Rules Poster',
+    category: 'poster',
+    categoryLabel: 'Poster',
+    year: '2025',
+    description: 'Poster aturan kegiatan dengan metafora rambu lalu lintas agar mudah diingat.',
+    descriptionEn: 'Event rules poster using traffic sign metaphors to make the rules memorable.',
+    image: cendekiaRules,
+    style: 'mat',
+  },
+  {
+    slug: 'rice-bowl-chicken',
+    title: 'Rice Bowl Chicken',
+    category: 'poster',
+    categoryLabel: 'Poster',
+    year: '2025',
+    description: 'Promo menu Idul Adha dengan food photography dan tipografi sticker playful.',
+    descriptionEn: 'Idul Adha menu promo with mouth-watering food photography and playful sticker typography.',
+    image: riceBowl,
+    style: 'mat',
+  },
+];
+
+const filters = [
+  { key: 'all', label: 'Semua' },
+  { key: 'ui-ux', label: 'UI/UX' },
+  { key: 'graphic', label: 'Graphic' },
+  { key: 'poster', label: 'Poster' },
+];
+---
+
+<section id="projects" class="relative mx-auto max-w-6xl scroll-mt-20 overflow-hidden px-5 py-24 md:px-8">
+  <!-- Motif section: triangle (identitas Projects) -->
+  <SectionMotif type="triangle" class="-top-20 -left-20 h-56 w-56 rotate-12 lg:h-72 lg:w-72" />
+
+  <p class="reveal mb-12 flex items-center gap-3 text-xs font-medium tracking-[0.25em] text-ink-muted uppercase">
+    <svg class="h-3.5 w-3.5 text-accent" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+      <path d="M50 4v92M4 50h92M17 17l66 66M83 17l-66 66" stroke="currentColor" stroke-width="10" stroke-linecap="round"></path>
+    </svg>
+    <span data-i18n="projects.kicker">03 — Projects</span>
+  </p>
+
+  <div class="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
+    <h2 class="reveal max-w-md font-display text-3xl font-bold tracking-tight sm:text-4xl" data-i18n="projects.h2">
+      Karya yang bicara lewat hasil.
+    </h2>
+
+    <div class="reveal reveal-delay-1 flex flex-wrap gap-2" role="group" aria-label="Filter project berdasarkan kategori">
+      {filters.map((filter, i) => (
+        <button
+          type="button"
+          data-filter={filter.key}
+          aria-pressed={i === 0 ? 'true' : 'false'}
+          aria-controls="project-grid"
+          class:list={[
+            'filter-btn h-11 cursor-pointer rounded-full border px-5 text-sm font-medium transition-colors duration-200',
+            i === 0
+              ? 'border-ink bg-ink text-bg'
+              : 'border-line bg-surface text-ink-muted hover:border-ink/30 hover:text-ink',
+          ]}
+        >
+          {filter.key === 'all' ? <span data-i18n="projects.filter.all">{filter.label}</span> : filter.label}
+        </button>
+      ))}
+    </div>
+  </div>
+
+  <div id="project-grid" class="mt-12 grid gap-8 md:grid-cols-2 md:gap-x-8 md:gap-y-12">
+    {projects.map((project, i) => (
+      <a
+        href={`/project/${project.slug}/`}
+        data-category={project.category}
+        class:list={['project-card group block cursor-pointer', i >= 2 && 'reveal-delay-1', i >= 4 && 'reveal-delay-2']}
+      >
+        <!-- Thumbnail 4:3 — poster portrait ditampilkan utuh di "mat galeri" -->
+        <div
+          class:list={[
+            'relative aspect-[4/3] overflow-hidden rounded-2xl transition-transform duration-200 md:group-hover:scale-[1.02]',
+            project.style === 'mat' ? 'border border-line bg-surface p-4 sm:p-6' : '',
+          ]}
+        >
+          <Image
+            src={project.image}
+            alt={`Karya: ${project.title}`}
+            widths={[400, 800]}
+            sizes="(min-width: 768px) 50vw, 100vw"
+            format="webp"
+            loading={i < 2 ? 'eager' : 'lazy'}
+            class:list={[
+              'h-full w-full',
+              project.style === 'mat'
+                ? 'object-contain drop-shadow-[0_8px_16px_rgba(26,26,26,0.12)]'
+                : 'object-cover',
+            ]}
+          />
+        </div>
+
+        <div class="mt-5 flex items-center gap-3">
+          <span class="rounded-full bg-accent-soft px-3 py-1 text-xs font-medium text-accent">
+            {project.categoryLabel}
+          </span>
+          <span class="text-xs font-medium text-ink-muted">{project.year}</span>
+        </div>
+
+        <h3
+          class="mt-3 font-display text-xl font-semibold tracking-tight transition-colors duration-200 group-hover:text-accent"
+          data-title-id={project.title}
+          data-title-en={project.titleEn}
+        >
+          {project.title}
+        </h3>
+        <p
+          class="mt-2 max-w-prose text-sm leading-relaxed text-ink-muted"
+          data-desc-id={project.description}
+          data-desc-en={project.descriptionEn}
+        >
+          {project.description}
+        </p>
+        <span class="mt-3 inline-flex items-center gap-1 text-sm font-medium text-accent">
+          <span data-i18n="projects.detail">Lihat detail</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+            aria-hidden="true"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12l-7.5 7.5M21 12H3"></path>
+          </svg>
+        </span>
+      </a>
+    ))}
+  </div>
+</section>
+
+<script>
+  const filterButtons = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
+  const cards = document.querySelectorAll<HTMLElement>('.project-card');
+
+  const activeClasses = ['border-ink', 'bg-ink', 'text-bg'];
+  const inactiveClasses = ['border-line', 'bg-surface', 'text-ink-muted'];
+
+  filterButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const filter = btn.dataset.filter;
+
+      filterButtons.forEach((b) => {
+        const isActive = b === btn;
+        b.setAttribute('aria-pressed', String(isActive));
+        b.classList.remove(...activeClasses, ...inactiveClasses);
+        b.classList.add(...(isActive ? activeClasses : inactiveClasses));
+      });
+
+      cards.forEach((card) => {
+        const show = filter === 'all' || card.dataset.category === filter;
+        if (show) {
+          card.classList.remove('hidden');
+          card.classList.add('reveal');
+        } else {
+          card.classList.remove('reveal');
+          card.classList.add('hidden');
+        }
+      });
+    });
+  });
+</script>

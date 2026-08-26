@@ -1,0 +1,95 @@
+---
+import SectionMotif from './SectionMotif.astro';
+
+const bio = [
+  'Mahasiswa & desainer UI/UX yang aktif mengubah ide kompleks menjadi antarmuka intuitif dan visual yang bermakna.',
+];
+
+const cta = 'Mari berkolaborasi!';
+
+const skills = [
+  'UI Design',
+  'UX Design',
+  'Graphic Design',
+  'Poster Design',
+  'Social Media Design',
+];
+
+const tools = ['Figma'];
+
+
+const stats = [
+  { value: '6+', label: 'Project selesai' },
+  { value: '5', label: 'Keahlian' },
+  { value: '∞', label: 'Terbuka freelance' },
+];
+---
+
+<section id="about" class="relative mx-auto max-w-6xl scroll-mt-20 overflow-hidden px-5 py-24 md:px-8">
+  <!-- Motif section: ring (identitas About) -->
+  <SectionMotif type="ring" class="-top-24 -right-24 h-64 w-64 lg:h-80 lg:w-80" />
+
+  <!-- Kicker section dengan nomor — konsisten dengan sistem editorial Hero -->
+  <p class="reveal mb-12 flex items-center gap-3 text-xs font-medium tracking-[0.25em] text-ink-muted uppercase">
+    <svg class="h-3.5 w-3.5 text-accent" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+      <path d="M50 4v92M4 50h92M17 17l66 66M83 17l-66 66" stroke="currentColor" stroke-width="10" stroke-linecap="round"></path>
+    </svg>
+    <span data-i18n="about.kicker">01 — Tentang Saya</span>
+  </p>
+
+  <div class="grid gap-12 md:grid-cols-[1fr_auto] md:gap-20">
+    <div class="max-w-prose">
+      <h2 class="reveal font-display text-3xl font-bold tracking-tight sm:text-4xl">
+        <span data-i18n="about.h2a">Desain yang bercerita,</span><br />
+        <span data-i18n="about.h2b">bukan sekadar tampil.</span>
+      </h2>
+      <p class="reveal mt-6 leading-relaxed text-ink-muted" data-i18n="about.bio">
+        Halo, saya <span class="font-medium text-ink">Muhamad Zaki Abdillah</span>.
+        Mahasiswa & desainer UI/UX yang aktif mengubah ide kompleks menjadi antarmuka intuitif dan visual yang bermakna.
+      </p>
+      <p class="reveal reveal-delay-1 mt-4 font-medium text-ink" data-i18n="about.cta">Mari berkolaborasi!</p>
+    </div>
+
+    <div class="reveal reveal-delay-1">
+      <h3 class="text-xs font-medium tracking-[0.25em] text-ink-muted uppercase" data-i18n="about.skills">Keahlian</h3>
+      <ul class="mt-5 flex flex-wrap gap-2 md:max-w-60 md:flex-col" role="list">
+        {skills.map((skill) => (
+          <li
+            class="rounded-full border border-line bg-surface px-4 py-2 text-sm font-medium text-ink"
+          >
+            {skill}
+          </li>
+        ))}
+      </ul>
+
+      <h3 class="mt-8 text-xs font-medium tracking-[0.25em] text-ink-muted uppercase" data-i18n="about.tools">Tools</h3>
+      <ul class="mt-5 flex flex-wrap gap-2" role="list">
+        {tools.map((tool) => (
+          <li
+            class="flex items-center gap-2 rounded-full border border-accent/20 bg-accent-soft px-4 py-2 text-sm font-medium text-ink"
+          >
+            <svg class="h-3.5 w-3.5 text-accent" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+              <path d="M50 4v92M4 50h92M17 17l66 66M83 17l-66 66" stroke="currentColor" stroke-width="10" stroke-linecap="round"></path>
+            </svg>
+            {tool}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+
+  <!-- Stats bar -->
+  <dl class="reveal mt-16 grid grid-cols-3 gap-6 border-y border-line py-8">
+    {stats.map((stat, i) => (
+      <div class="flex flex-col items-center gap-1 text-center sm:flex-row sm:items-baseline sm:justify-center sm:gap-3 sm:text-left">
+        <dt class="order-2 text-xs font-medium tracking-wide text-ink-muted uppercase sm:order-1" data-i18n={`about.stat${i + 1}`}>
+          {stat.label}
+        </dt>
+        <dd class="order-1 font-display text-4xl font-bold text-accent sm:order-2" aria-hidden="true">
+          {stat.value}
+        </dd>
+        <span class="sr-only">{stat.value} {stat.label}</span>
+      </div>
+    ))}
+  </dl>
+</section>

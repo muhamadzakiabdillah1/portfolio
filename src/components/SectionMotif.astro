@@ -1,0 +1,24 @@
+---
+interface Props {
+  type?: 'asterisk' | 'ring' | 'plus' | 'triangle';
+  class?: string;
+}
+
+const { type = 'asterisk', class: className = '' } = Astro.props;
+
+const paths: Record<string, string> = {
+  asterisk: 'M50 4v92M4 50h92M17 17l66 66M83 17l-66 66',
+  ring: 'M50 8a42 42 0 1 1 0 84 42 42 0 0 1 0-84z',
+  plus: 'M50 8v84M8 50h84',
+  triangle: 'M50 10 90 84H10z',
+};
+---
+
+<svg
+  class={`pointer-events-none absolute select-none text-accent-soft ${className}`}
+  viewBox="0 0 100 100"
+  fill="none"
+  aria-hidden="true"
+>
+  <path d={paths[type]} stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>

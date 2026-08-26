@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Cheatsheet — Muhamad Zaki Abdillah</title>
+  <style>
+    * { box-sizing: border-box; }
+    @page { margin: 2cm; size: A4; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.6;
+      color: #1a1a1a;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+      font-size: 11pt;
+    }
+    h1 { font-size: 24pt; margin-bottom: 0.5rem; color: #1a1a1a; border-bottom: 3px solid #2e5bff; padding-bottom: 0.5rem; }
+    h2 { font-size: 16pt; margin-top: 2rem; margin-bottom: 0.75rem; color: #1a1a1a; border-left: 4px solid #2e5bff; padding-left: 1rem; }
+    h3 { font-size: 13pt; margin-top: 1.5rem; margin-bottom: 0.5rem; color: #2e5bff; }
+    h4 { font-size: 11pt; margin-top: 1rem; margin-bottom: 0.35rem; color: #1a1a1a; }
+    p, li { margin: 0.35rem 0; }
+    ul, ol { padding-left: 1.5rem; margin: 0.5rem 0; }
+    code { background: #f0f0f0; padding: 0.15em 0.4em; border-radius: 3px; font-size: 0.9em; font-family: 'Monaco', 'Menlo', monospace; }
+    pre { background: #1a1a1a; color: #e0e0e0; padding: 1rem; border-radius: 6px; overflow-x: auto; font-size: 9pt; line-height: 1.5; }
+    pre code { background: none; padding: 0; color: inherit; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 9.5pt; }
+    th, td { border: 1px solid #ddd; padding: 0.5rem; text-align: left; vertical-align: top; }
+    th { background: #f5f5f5; font-weight: 600; }
+    tr:nth-child(even) { background: #fafafa; }
+    .section { page-break-inside: avoid; margin-bottom: 1.5rem; }
+    .badge { display: inline-block; background: #eaf0ff; color: #2e5bff; padding: 0.15rem 0.5rem; border-radius: 9999px; font-size: 0.8em; font-weight: 600; margin-right: 0.3rem; margin-bottom: 0.3rem; }
+    .checklist { list-style: none; padding-left: 0; }
+    .checklist li { position: relative; padding-left: 1.8rem; margin: 0.25rem 0; }
+    .checklist li::before { content: "✅"; position: absolute; left: 0; }
+    .note { background: #fffbe6; border-left: 4px solid #2e5bff; padding: 0.75rem 1rem; margin: 1rem 0; border-radius: 0 6px 6px 0; font-size: 0.95em; }
+    .badge-row { display: flex; flex-wrap: wrap; gap: 0.3rem; margin: 0.5rem 0; }
+    a { color: #2e5bff; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #ddd; text-align: center; font-size: 0.85em; color: #666; }
+    @media print {
+      body { padding: 0; font-size: 10pt; }
+      h2 { page-break-after: avoid; }
+      .section { page-break-inside: avoid; }
+      a { text-decoration: none; color: inherit; }
+      .no-print { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header style="margin-bottom: 2rem;">
+    <h1>Portfolio Cheatsheet — Muhamad Zaki Abdillah</h1>
+    <p style="color: #666; margin-top: 0.5rem;">Website Portofolio Personal — Technical Reference untuk Wawancara & Demo</p>
+    <p style="color: #999; font-size: 0.9em;">Generated: 2025 | Astro + Tailwind + TypeScript</p>
+  </header>
+
+  <section class="section">
+    <h2>🎯 Ringkasan 1 Kalimat</h2>
+    <p><strong>Website portofolio personal berbasis Astro + Tailwind, static-generated, bilingual (ID/EN), dengan 6 case study real, design system editorial minimalism yang konsisten, accessibility-ready, dan siap deploy gratis ke Vercel/Netlify.</strong></p>
+  </section>
+
+  <section class="section">
+    <h2>🛠️ Tech Stack</h2>
+    <table>
+      <thead><tr><th>Layer</th><th>Teknologi</th><th>Alasan Dipakai</th></tr></thead>
+      <tbody>
+        <tr><td>Framework</td><td>Astro 7</td><td>Static site generator modern, performa tinggi, island architecture</td></tr>
+        <tr><td>Styling</td><td>Tailwind CSS v4</td><td>Utility-first, design token via <code>@theme</code>, responsive utility-first</td></tr>
+        <tr><td>Language</td><td>TypeScript</td><td>Type safety, developer experience</td></tr>
+        <tr><td>Images</td><td>Astro Assets (<code>astro:assets</code>)</td><td>Auto WebP, responsive <code>srcset</code>, lazy/eager loading</td></tr>
+        <tr><td>Content</td><td>Astro Content Collections</td><td>Markdown frontmatter + schema validation (Zod)</td></tr>
+        <tr><td>Fonts</td><td>Fontshare (Satoshi + General Sans)</td><td>Gratis, unique, bukan Inter/Roboto generik</td></tr>
+        <tr><td>Hosting</td><td>Vercel / Netlify</td><td>Gratis, SSL, CDN global, custom domain</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="section">
+    <h2>🎨 Design System & Estetika</h2>
+    <table>
+      <thead><tr><th>Aspek</th><th>Detail</th><th>Kenapa Unik</th></tr></thead>
+      <tbody>
+        <tr><td>Gaya</td><td>Editorial Minimalism</td><td>Bukan "clean minimal" generik — ada <em>voice</em>, numbered sections, asterisk motif, mat-galeri poster</td></tr>
+        <tr><td>Warna</td><td><code>bg #FAFAF8</code> (warm white), <code>accent #2E5BFF</code>, <code>accent-soft #EAF0FF</code></td><td>Warm white tidak steril, biru percaya diri, bukan purple-gradient cliché</td></tr>
+        <tr><td>Tipografi</td><td>Satoshi (heading) + General Sans (body) — Fontshare</td><td>Bukan Inter/Roboto — karakteristik, humanist, readable</td></tr>
+        <tr><td>Motif</td><td>Asterisk (Hero, Case Study), Ring (About, Contact), Plus (Services), Triangle (Projects), Asterisk Large (Process)</td><td>Motif konsisten per section, grid-breaking, tidak terlalu banyak</td></tr>
+        <tr><td>Spacing</td><td>Scale <code>4·8·12·16·24·32·48·64·96</code></td><td>Konsisten, rhythmic</td></tr>
+        <tr><td>Shadow</td><td>Token-based (<code>shadow-[0_8px_24px_-8px]</code>)</td><td>Konsisten, bukan arbitrary value</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="section">
+    <h2>🧩 Struktur Halaman (Single Page + Case Studies)</h2>
+    <table>
+      <thead><tr><th>Section</th><th>ID</th><th>Fungsi Utama</th></tr></thead>
+      <tbody>
+        <tr><td>Hero</td><td><code>#hero</code></td><td>Nama, tagline bilingual, CTA ganda, avatar hover interactive</td></tr>
+        <tr><td>About</td><td><code>#about</code></td><td>Bio approved, 5 skill chips + Tools (Figma), stats bar (6+/5/∞)</td></tr>
+        <tr><td>Services</td><td><code>#services</code></td><td>3 kartu: UI/UX Design, Poster & Graphic Design, Social Media Design</td></tr>
+        <tr><td>Projects</td><td><code>#projects</code></td><td>Grid 6 karya, filter kategori (UI/UX, Graphic, Poster), mat-galeri poster</td></tr>
+        <tr><td>Process</td><td><code>#process</code></td><td>4 langkah timeline: Discover → Design → Revise → Deliver</td></tr>
+        <tr><td>Contact</td><td><code>#contact</code></td><td>Form <code>mailto:</code> + Email/IG cards, catatan WA pending honest</td></tr>
+        <tr><td>Footer</td><td>-</td><td>Logo "Zaki.", © 2026, tombol "Ke atas"</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Case Study Pages (6 halaman auto-generate)</h3>
+    <table>
+      <thead><tr><th>Project</th><th>Kategori</th><th>Fitur Khusus</th></tr></thead>
+      <tbody>
+        <tr><td>FineFlow</td><td>UI/UX</td><td>3 gambar proses (hero, landing, dashboard)</td></tr>
+        <tr><td>Introducing Your New Leaders</td><td>Graphic</td><td>-</td></tr>
+        <tr><td>Monthly Highlights</td><td>Graphic</td><td>-</td></tr>
+        <tr><td>Save the Date</td><td>Poster</td><td>-</td></tr>
+        <tr><td>Poster Aturan Cendekia School</td><td>Poster</td><td>-</td></tr>
+        <tr><td>Rice Bowl Chicken</td><td>Poster</td><td>-</td></tr>
+      </tbody>
+    </table>
+    <p>Setiap case study: Hero image (mat-galeri poster), Tantangan, Solusi & Hasil, Catatan Desainer, Proses (FineFlow), Navigasi "Project Berikutnya" sirkular.</  </section>
+
+  <section class="section">
+    <h2>🌐 Fitur Unggulan (USP)</h2>
+    <table>
+      <thead><tr><th>Fitur</th><th>Detail</th><th>Value</th></tr></thead>
+      <tbody>
+        <tr><td>Toggle ID/EN Real-time</td><td>Persist localStorage, html lang update, semua string UI + project cards + case study body</td><td>UX mulus, SEO-friendly</td></tr>
+        <tr><td>Bilingual Content</td><td>Semua string UI + 6 project cards + 6 case study (title, summary, problem, solution, note)</td><td>Ready internasional</td></tr>
+        <tr><td>Gambar WebP Otomatis</td><td>42 gambar → WebP via <code>astro:assets</code>, 90%+ kompresi, responsive srcset</td><td>Performa & SEO</td></tr>
+        <tr><td>Mat Galeri Poster</td><td>Poster portrait ditampilkan utuh di "mat galeri" (padding + border + shadow), tidak crop</td><td>Respect karya</td></tr>
+        <tr><td>Asterisk Motif System</td><td>5 varian per section, konsisten, tidak berlebihan</td><td>Visual identity kohesif</td></tr>
+        <tr><td>Avatar Hover</td><td>Kartu miring → lurus + scale + asterisk spin</td><td>Micro-interaction delightful</td></tr>
+        <tr><td>Form <code>mailto:</code> + Validasi</td><td><code>novalidate</code> + validasi custom → buka email client dengan subject/body terisi</td><td>Zero backend, gratis</td></tr>
+        <tr><td>Accessibility (WCAG AA)</td><td>Focus ring, labels, alt text, reduced-motion, touch target 44px, keyboard nav</td><td>Inklusif</td></tr>
+        <tr><td>Responsive</td><td>Mobile-first, breakpoints <code>md:</code> (768px), grid/flex, touch target 44px</td><td>Semua device</td></tr>
+        <tr><td>Performance</td><td>Static export, WebP, lazy loading, eager untuk above-fold</td><td>Lighthouse 90+</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="section">
+    <h2>🛡️ Security & Best Practices</h2>
+    <table>
+      <thead><tr><th>Layer</th><th>Implementasi</th></tr></thead>
+      <tbody>
+        <tr><td>HTTPS/HSTS</td><td>Auto Vercel/Netlify</td></tr>
+        <tr><td>Security Headers</td><td><code>public/_headers</code> → CSP, X-Frame-Options, X-Content-Type-Options, Permissions-Policy</td></tr>
+        <tr><td>CSP</td><td>Strict: <code>default-src 'self'</code>, <code>script-src 'self' 'unsafe-inline'</code>, <code>font-src fontshare.com</code>, <code>frame-ancestors 'none'</code></td></tr>
+        <tr><td>No Secrets</td><td>Tidak ada API key, DB, auth di client</td></tr>
+        <tr><td>Form</td><td><code>mailto:</code> + validasi custom (nama, email format, pesan required)</td></tr>
+        <tr><td>Dependencies</td><td><code>npm audit</code> → 0 critical/high</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="section">
+    <h2>🚀 Deploy & Hosting</h2>
+    <table>
+      <thead><tr><th>Opsi</th><th>Kelebihan</th></tr></thead>
+      <tbody>
+        <tr><td>Vercel</td><td>Auto-detect Astro, SSL, CDN, custom domain, gratis</td></tr>
+        <tr><td>Netlify</td><td>Sama + <strong>Netlify Forms gratis 100 submit/bulan</strong> (upgrade form nanti)</td></tr>
+      </tbody>
+    </table>
+    <pre><code># 1. Init git (kalau belum)
+git init
+git add .
+git commit -m "Portfolio v1.0 - Launch ready"
+
+# 2. Push ke GitHub
+git remote add origin https://github.com/username/portfolio.git
+git push -u origin main
+
+# 3. Deploy Vercel (gratis, 2 menit)
+# - Buka vercel.com → Add New Project → Import repo GitHub
+# - Framework: Astro (auto-detect) → Deploy
+# Done! SSL, CDN, custom domain gratis
+</code></pre>
+  </section>
+
+  <section class="section">
+    <h2>🎤 Talking Points untuk Wawancara</h2>
+    <table>
+      <thead><tr><th>Topik</th><th>Key Message</th></tr></thead>
+      <tbody>
+        <tr><td>Design Philosophy</td><td>"Saya pilih <em>editorial minimalism</em> — bukan minimalism yang kosong, tapi minimalism yang punya <em>voice</em>: numbered sections, asterisk motif, mat-galeri poster. Desain yang punya <em>voice</em>."</td></tr>
+        <tr><td>Problem Solving</td><td>"Masalah poster portrait di grid landscape → saya buat 'mat galeri' (padding + border + shadow) biar poster tampil utuh tanpa crop."</td></tr>
+        <tr><td>Performance</td><td>"Astro static + Astro Assets → 42 gambar WebP, 90% kompresi, lazy loading, Lighthouse 90+."</td></tr>
+        <tr><td>Accessibility</td><td>"Bukan checklist doang — focus ring, reduced-motion, touch target 44px, semantic HTML, keyboard nav. Aksesibilitas = fitur, bukan checklist."</td></tr>
+        <tr><td>Personal Branding</td><td>"Tagline 'UI yang enak dipakai, desain yang enak dilihat' — ringkas, jujur, mewakili dual skill saya (UI/UX + Graphic)."</td></tr>
+        <tr><td>Scalability</td><td>"Content di markdown + Astro Content Collections → nambah project = bikin file <code>.md</code> saja. Siap Decap CMS kalau butuh CMS nanti."</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="section">
+    <h2>🎯 One-Liner untuk CV/LinkedIn</h2>
+    <div style="background: #f5f5f5; padding: 1rem; border-radius: 6px; border-left: 4px solid #2e5bff; font-style: italic;">
+      "Designed & developed a bilingual, accessible, static-generated portfolio with Astro + Tailwind featuring 6 real-world case studies, bilingual content, editorial design system, and production-grade accessibility — deployed on Vercel."
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>📋 Quick Reference untuk Demo</h2>
+    <table>
+      <thead><tr><th>Aksi</th><th>URL</th></tr></thead>
+      <tbody>
+        <tr><td>Homepage</td><td><code>http://localhost:4321</code></td></tr>
+        <tr><td>Case Study FineFlow</td><td><code>http://localhost:4321/project/fineflow/</code></td></tr>
+        <tr><td>Toggle EN/ID</td><td>Klik tombol ID/EN di navbar</td></tr>
+        <tr><td>Form Contact</td><td>Scroll ke <code>#contact</code> → test form</td></tr>
+        <tr><td>Toggle Mobile</td><td>DevTools → Toggle device toolbar</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <footer>
+    <p>Portfolio Cheatsheet v1.0 — Muhamad Zaki Abdillah</p>
+    <p>Website: <a href="https://github.com/username/portfolio">github.com/username/portfolio</a> | Email: muhamadzakyabdillah25@gmail.com</p>
+  </footer>
+
+  <div class="no-print" style="margin-top: 2rem; padding: 1rem; background: #f0f4ff; border-radius: 6px; text-align: center;">
+    <strong>💡 Tip:</strong> Tekan <kbd>Ctrl+P</kbd> (Print) → Destination: <strong>Save as PDF</strong> → Save
+  </div>
+</body>
+</html>

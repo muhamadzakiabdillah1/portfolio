@@ -1,0 +1,133 @@
+---
+import { Image } from 'astro:assets';
+import SectionMotif from './SectionMotif.astro';
+import avatarImage from '../assets/images/avatar.png';
+
+interface Props {
+  name?: string;
+  initials?: string;
+}
+
+const { name = 'Muhamad Zaki Abdillah', initials = 'MZ' } = Astro.props;
+---
+
+<section class="relative overflow-hidden">
+  <!-- Label vertikal di tepi kanan — sentuhan editorial -->
+  <span
+    class="absolute top-1/2 right-6 hidden -translate-y-1/2 rotate-90 text-[10px] font-medium tracking-[0.35em] text-ink-muted uppercase lg:block"
+    aria-hidden="true"
+  >
+    Portfolio — 2026
+  </span>
+
+  <!-- Motif section: asterisk (identitas Hero) -->
+  <SectionMotif type="asterisk" class="-right-16 -bottom-20 h-72 w-72 lg:h-96 lg:w-96" />
+
+  <div class="relative mx-auto grid min-h-[90vh] w-full max-w-6xl items-center gap-12 px-5 py-16 md:grid-cols-[1fr_auto] md:gap-16 md:px-8">
+    <div>
+      <!-- Kicker editorial: tanpa pill, asterisk kecil sebagai tanda -->
+      <p class="reveal mb-8 flex items-center gap-3 text-xs font-medium tracking-[0.25em] text-ink-muted uppercase" data-i18n="hero.kicker">
+        <svg class="h-3.5 w-3.5 text-accent" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+          <path d="M50 4v92M4 50h92M17 17l66 66M83 17l-66 66" stroke="currentColor" stroke-width="10" stroke-linecap="round"></path>
+        </svg>
+        UI/UX &amp; Graphic Designer
+      </p>
+
+      <!-- Tipografi raksasa: frasa kunci diberi highlight stabilo -->
+      <h1 class="font-display text-[2.75rem] leading-[1.15] font-bold tracking-tight sm:text-6xl lg:text-[4.25rem]">
+        <span class="reveal block" data-i18n="hero.h1a">UI yang enak dipakai,</span>
+        <span class="reveal reveal-delay-1 block">
+          desain yang
+          <span class="bg-accent-soft px-2 box-decoration-clone" data-i18n="hero.h1b">enak dilihat.</span>
+        </span>
+      </h1>
+
+      <p class="reveal reveal-delay-2 mt-8 max-w-md text-base leading-relaxed text-ink-muted sm:text-lg">
+        <span data-i18n="hero.sub1">Saya</span>
+        <span class="font-medium text-ink">Muhamad Zaki Abdillah</span><span data-i18n="hero.sub2"> — mahasiswa &amp;
+        desainer UI/UX dan grafis. Saat ini menerima proyek freelance.</span>
+      </p>
+
+      <div class="reveal reveal-delay-3 mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
+        <a
+          href="#projects"
+          class="group inline-flex h-12 cursor-pointer items-center gap-2 rounded-full bg-accent px-7 text-sm font-medium text-white transition-colors duration-200 hover:bg-ink"
+        >
+          <span data-i18n="hero.cta1">Lihat Karya</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+            aria-hidden="true"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12l-7.5 7.5M21 12H3"></path>
+          </svg>
+        </a>
+        <a
+          href="#contact"
+          class="group inline-flex h-12 cursor-pointer items-center gap-1 text-sm font-medium text-ink"
+        >
+          <span class="decoration-accent decoration-2 underline-offset-8 group-hover:underline">
+            <span data-i18n="hero.cta2">Hubungi Saya</span>
+          </span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-4 w-4 text-accent transition-transform duration-200 group-hover:translate-x-1"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+            aria-hidden="true"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12l-7.5 7.5M21 12H3"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Avatar: kartu miring dengan badge status — hover = "menata diri" -->
+    <div class="reveal reveal-delay-2 order-first justify-self-center md:order-none md:justify-self-end">
+      <div class="group relative">
+        <div
+          class="relative flex h-44 w-44 rotate-3 items-center justify-center rounded-3xl bg-accent-soft shadow-[0_8px_24px_-8px] shadow-accent/25 ring-1 ring-accent/10 transition-transform duration-300 group-hover:rotate-0 group-hover:scale-[1.02] sm:h-60 sm:w-60 lg:h-72 lg:w-72"
+          role="img"
+          aria-label={`Foto profil ${name}`}
+        >
+          <!-- Asterisk kecil muncul saat hover — hadiah mikro-interaksi -->
+          <svg
+            class="absolute -top-2 -right-2 h-10 w-10 text-accent opacity-0 transition-all duration-300 group-hover:rotate-90 group-hover:opacity-100 sm:h-12 sm:w-12"
+            viewBox="0 0 100 100"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path d="M50 4v92M4 50h92M17 17l66 66M83 17l-66 66" stroke="currentColor" stroke-width="10" stroke-linecap="round"></path>
+          </svg>
+
+          <!-- Foto profil asli (fallback ke inisial kalau file belum ada) -->
+          <Image
+            src={avatarImage}
+            alt={`Foto profil ${name}`}
+            widths={[200, 400]}
+            sizes="(min-width: 1024px) 288px, (min-width: 768px) 240px, 176px"
+            format="webp"
+            loading="eager"
+            class="h-full w-full rounded-3xl object-cover"
+          />
+        </div>
+
+        <div
+          class="absolute -bottom-4 left-1/2 flex -translate-x-1/2 items-center gap-2 rounded-full border border-line bg-surface py-2 pr-4 pl-3 shadow-sm"
+        >
+          <span class="relative flex h-2.5 w-2.5">
+            <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-40"></span>
+            <span class="relative inline-flex h-2.5 w-2.5 rounded-full bg-accent"></span>
+          </span>
+          <span class="text-xs font-medium whitespace-nowrap text-ink" data-i18n="hero.badge">Open for freelance</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
