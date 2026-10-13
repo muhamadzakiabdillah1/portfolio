@@ -9,7 +9,7 @@ interface Props {
 const {
   title = 'Muhamad Zaki Abdillah — UI/UX & Graphic Designer',
   description =
-    'Portofolio Muhamad Zaki Abdillah. UI yang enak dipakai, desain yang enak dilihat. Terbuka untuk proyek freelance.',
+    'Portofolio Muhamad Zaki Abdillah. Desain yang punya tujuan, ide yang diwujudkan. Terbuka untuk proyek freelance.',
 } = Astro.props;
 ---
 
@@ -32,6 +32,21 @@ const {
       rel="stylesheet"
     />
     <title>{title}</title>
+    <script is:inline>
+      // Anti-flash: pasang .dark sebelum paint (localStorage > preferensi OS)
+      (function () {
+        try {
+          var t = localStorage.getItem('portfolio-theme');
+          var dark =
+            t === 'dark'
+              ? true
+              : t === 'light'
+                ? false
+                : window.matchMedia('(prefers-color-scheme: dark)').matches;
+          if (dark) document.documentElement.classList.add('dark');
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body class="bg-bg font-body text-ink antialiased">
     <slot />
@@ -89,6 +104,43 @@ const {
       });
 
       apply(lang);
+
+      // ---- Theme toggle (dark mode class-based) ----
+      const THEME_KEY = 'portfolio-theme';
+
+      function paintTheme(dark: boolean) {
+        document
+          .querySelectorAll<HTMLButtonElement>('#theme-toggle, .mobile-theme-toggle')
+          .forEach((btn) => {
+            btn.querySelector('[data-icon="moon"]')?.classList.toggle('hidden', dark);
+            btn.querySelector('[data-icon="sun"]')?.classList.toggle('hidden', !dark);
+            btn.setAttribute('aria-pressed', String(dark));
+            btn.setAttribute('aria-label', dark ? 'Ganti ke mode terang' : 'Ganti ke mode gelap');
+          });
+      }
+
+      function setTheme(dark: boolean, persist = true) {
+        document.documentElement.classList.toggle('dark', dark);
+        if (persist) {
+          try {
+            localStorage.setItem(THEME_KEY, dark ? 'dark' : 'light');
+          } catch {
+            /* abaikan: mode privat */
+          }
+        }
+        paintTheme(dark);
+      }
+
+      document
+        .querySelectorAll<HTMLButtonElement>('#theme-toggle, .mobile-theme-toggle')
+        .forEach((btn) => {
+          btn.addEventListener('click', () =>
+            setTheme(!document.documentElement.classList.contains('dark')),
+          );
+        });
+
+      // Sinkron dengan hasil anti-flash script (tanpa tulis ulang storage)
+      setTheme(document.documentElement.classList.contains('dark'), false);
     </script>
   </body>
 </html>

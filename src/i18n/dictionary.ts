@@ -8,12 +8,12 @@ export const translations: Record<string, { id: string; en: string }> = {
 
   // Hero
   'hero.kicker': { id: 'UI/UX & Graphic Designer', en: 'UI/UX & Graphic Designer' },
-  'hero.h1a': { id: 'UI yang enak dipakai,', en: "UI that's a joy to use," },
-  'hero.h1b': { id: 'enak dilihat.', en: 'a joy to see.' },
+  'hero.h1a': { id: 'Desain yang punya tujuan,', en: 'Design with purpose,' },
+  'hero.h1b': { id: 'ide yang diwujudkan.', en: 'ideas brought to life.' },
   'hero.sub1': { id: 'Saya', en: "I'm" },
   'hero.sub2': {
-    id: ' — mahasiswa & desainer UI/UX dan grafis. Saat ini menerima proyek freelance.',
-    en: ' — a student & UI/UX and graphic designer. Currently open for freelance projects.',
+    id: ', mahasiswa Sistem Informasi di Telkom University yang tertarik pada desain grafis dan UI/UX.',
+    en: ', an Information Systems student at Telkom University passionate about graphic design and UI/UX.',
   },
   'hero.cta1': { id: 'Lihat Karya', en: 'View Work' },
   'hero.cta2': { id: 'Hubungi Saya', en: 'Contact Me' },
@@ -24,11 +24,13 @@ export const translations: Record<string, { id: string; en: string }> = {
   'about.h2a': { id: 'Desain yang bercerita,', en: 'Design that tells stories,' },
   'about.h2b': { id: 'bukan sekadar tampil.', en: 'not just looks.' },
   'about.bio': {
-    id: 'Halo, saya Muhamad Zaki Abdillah. Mahasiswa & desainer UI/UX yang aktif mengubah ide kompleks menjadi antarmuka intuitif dan visual yang bermakna.',
-    en: "Hi, I'm Muhamad Zaki Abdillah. A student & UI/UX designer who turns complex ideas into intuitive interfaces and meaningful visuals.",
+    id: 'Saya mulai mengembangkan pengalaman kreatif melalui kegiatan organisasi, mulai dari membuat poster dan konten media sosial hingga mendokumentasikan acara dan mengedit video. Saya menikmati proses mengembangkan ide, bertukar sudut pandang dengan tim, dan mengubahnya menjadi karya visual. Saat ini, saya juga sedang mempelajari UI/UX menggunakan Figma melalui studi kasus dan eksplorasi desain mandiri.',
+    en: "My creative journey grew through organizational activities — from posters and social media content to event documentation and video editing. I enjoy developing ideas, exchanging perspectives with the team, and turning them into visual works. Currently, I'm also learning UI/UX with Figma through case studies and self-driven design exploration.",
   },
   'about.cta': { id: 'Mari berkolaborasi!', en: "Let's collaborate!" },
   'about.skills': { id: 'Keahlian', en: 'Skills' },
+  'about.skillsDesign': { id: 'Desain', en: 'Design' },
+  'about.skillsProcess': { id: 'Proses & Sistem', en: 'Process & Systems' },
   'about.tools': { id: 'Tools', en: 'Tools' },
   'about.stat1': { id: 'Project selesai', en: 'Projects completed' },
   'about.stat2': { id: 'Keahlian', en: 'Skills' },

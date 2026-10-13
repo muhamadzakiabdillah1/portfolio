@@ -31,6 +31,22 @@ const links = [
         <span class="text-ink">ID</span>
         <span class="text-ink-muted">/ EN</span>
       </button>
+
+      <button
+        type="button"
+        id="theme-toggle"
+        class="flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border border-line bg-surface text-ink transition-colors duration-200 hover:border-ink/30"
+        aria-label="Ganti ke mode gelap"
+        aria-pressed="false"
+      >
+        <svg data-icon="moon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+        </svg>
+        <svg data-icon="sun" xmlns="http://www.w3.org/2000/svg" class="hidden h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4" />
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+        </svg>
+      </button>
     </nav>
 
     <button
@@ -63,7 +79,7 @@ const links = [
           </a>
         </li>
       ))}
-      <li class="mt-2 px-3">
+      <li class="mt-2 flex items-center gap-2 px-3">
         <button
           type="button"
           class="mobile-lang-toggle flex h-11 cursor-pointer items-center gap-1 rounded-full border border-line px-4 text-xs font-medium"
@@ -71,6 +87,20 @@ const links = [
         >
           <span class="text-ink">ID</span>
           <span class="text-ink-muted">/ EN</span>
+        </button>
+        <button
+          type="button"
+          class="mobile-theme-toggle flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border border-line bg-surface text-ink"
+          aria-label="Ganti ke mode gelap"
+          aria-pressed="false"
+        >
+          <svg data-icon="moon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+          <svg data-icon="sun" xmlns="http://www.w3.org/2000/svg" class="hidden h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+          </svg>
         </button>
       </li>
     </ul>

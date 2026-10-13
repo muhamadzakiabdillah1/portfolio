@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+/* Dark mode berbasis class .dark (bukan prefers-color-scheme bawaan),
+   supaya bisa di-toggle manual. WAJIB ada di Tailwind v4. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --color-bg: #fafaf8;
   --color-surface: #ffffff;
@@ -11,6 +15,24 @@
 
   --font-display: "Satoshi", ui-sans-serif, system-ui, sans-serif;
   --font-body: "General Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Override token untuk dark mode — nilai dari design.md §2.
+   accent-soft tidak didefinisikan di sana, jadi diturunkan dari token
+   accent via color-mix (bukan warna baru). */
+:root {
+  color-scheme: light;
+}
+
+.dark {
+  color-scheme: dark;
+  --color-bg: #121212;
+  --color-surface: #1c1c1e;
+  --color-ink: #f5f5f5;
+  --color-ink-muted: #a0a0a0;
+  --color-accent: #6c8cff;
+  --color-accent-soft: color-mix(in srgb, #6c8cff 18%, transparent);
+  --color-line: #2c2c2e;
 }
 
 /* Reveal on load — 1 animasi kunci per view (ux-guidelines) */

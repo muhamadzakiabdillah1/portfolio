@@ -9,17 +9,17 @@
 ## 1. Identitas
 
 - **Nama lengkap / nama panggilan:** Muhamad Zaki Abdillah
-- **Tagline (ID):** "UI yang enak dipakai, desain yang enak dilihat."
-- **Tagline (EN):** "UI that's a joy to use, design that's a joy to see."
-- **Subteks Hero (ID):** ✅ "Saya Muhamad Zaki Abdillah — mahasiswa & desainer UI/UX dan grafis. Saat ini menerima proyek freelance."
-- **Bio singkat (ID, 2–3 kalimat):** ✅ APPROVED — "Halo, saya Muhamad Zaki Abdillah. Mahasiswa & desainer UI/UX yang aktif mengubah ide kompleks menjadi antarmuka intuitif dan visual yang bermakna. Mari berkolaborasi!"
-- **Bio singkat (EN, 2–3 kalimat):** [DRAFT terjemahan — perlu review] "Hi, I'm Muhamad Zaki Abdillah. A student & UI/UX designer who turns complex ideas into intuitive interfaces and meaningful visuals. Let's collaborate!"
+- **Tagline (ID):** "Desain yang punya tujuan, ide yang diwujudkan."
+- **Tagline (EN):** "Design with purpose, ideas brought to life."
+- **Subteks Hero (ID):** ✅ "Saya Muhamad Zaki Abdillah, mahasiswa Sistem Informasi di Telkom University yang tertarik pada desain grafis dan UI/UX."
+- **Bio singkat (ID, 2–3 kalimat):** ✅ APPROVED — "Saya mulai mengembangkan pengalaman kreatif melalui kegiatan organisasi, mulai dari membuat poster dan konten media sosial hingga mendokumentasikan acara dan mengedit video. Saya menikmati proses mengembangkan ide, bertukar sudut pandang dengan tim, dan mengubahnya menjadi karya visual. Saat ini, saya juga sedang mempelajari UI/UX menggunakan Figma melalui studi kasus dan eksplorasi desain mandiri."
+- **Bio singkat (EN, 2–3 kalimat):** [DRAFT terjemahan — perlu review] "My creative journey grew through organizational activities — from posters and social media content to event documentation and video editing. I enjoy developing ideas, exchanging perspectives with the team, and turning them into visual works. Currently, I'm also learning UI/UX with Figma through case studies and self-driven design exploration."
 - **Foto/avatar:** *(BELUM ADA — user siapkan foto)*
 
 ## 2. Skill & Tools
 
-- **Skill:** UI Design, UX Design, Graphic Design, Poster Design, Social Media Design
-- **Tools:** Figma
+- **Skill:** UI Design, UX Design, Graphic Design, Poster Design, Social Media Design, Wireframing, Prototyping, Design System, User Research
+- **Tools:** Figma, Canva, CapCut, FigJam
 
 ## 3. Layanan (untuk section Services)
 
@@ -107,7 +107,7 @@
 
 ## 5. Kontak & Sosial Media
 
-- **Email:** muhamadzakyabdillah25@gmail.com
+- **Email:** muhamadzakiabdillah1@gmail.com
 - **WhatsApp:** *(BELUM ADA — tambahkan nanti jika sudah punya; website dirancang tetap jalan tanpa ini)*
 - **Instagram:** muhamadzaakkii
 - **Behance / Dribbble:** *(BELUM ADA — opsional, bisa menyusul)*
