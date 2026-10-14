@@ -18,7 +18,7 @@
 
 ## 2. Skill & Tools
 
-- **Skill:** UI Design, UX Design, Graphic Design, Poster Design, Social Media Design, Wireframing, Prototyping, Design System, User Research
+- **Skill:** UI Design, UX Design, Graphic Design, Poster Design, Social Media Design
 - **Tools:** Figma, Canva, CapCut, FigJam
 
 ## 3. Layanan (untuk section Services)

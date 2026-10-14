@@ -17,7 +17,7 @@ export const translations: Record<string, { id: string; en: string }> = {
   },
   'hero.cta1': { id: 'Lihat Karya', en: 'View Work' },
   'hero.cta2': { id: 'Hubungi Saya', en: 'Contact Me' },
-  'hero.badge': { id: 'Open for freelance', en: 'Open for freelance' },
+  'hero.badge': { id: 'Terbuka untuk kolaborasi', en: 'Open for collaboration' },
 
   // About
   'about.kicker': { id: '01 — Tentang Saya', en: '01 — About Me' },
@@ -29,12 +29,10 @@ export const translations: Record<string, { id: string; en: string }> = {
   },
   'about.cta': { id: 'Mari berkolaborasi!', en: "Let's collaborate!" },
   'about.skills': { id: 'Keahlian', en: 'Skills' },
-  'about.skillsDesign': { id: 'Desain', en: 'Design' },
-  'about.skillsProcess': { id: 'Proses & Sistem', en: 'Process & Systems' },
   'about.tools': { id: 'Tools', en: 'Tools' },
-  'about.stat1': { id: 'Project selesai', en: 'Projects completed' },
+  'about.stat1': { id: 'Study case', en: 'Case studies' },
   'about.stat2': { id: 'Keahlian', en: 'Skills' },
-  'about.stat3': { id: 'Terbuka freelance', en: 'Open for freelance' },
+  'about.stat3': { id: 'Terbuka kolaborasi', en: 'Open for collaboration' },
 
   // Services
   'services.kicker': { id: '02 — Layanan', en: '02 — Services' },
@@ -51,12 +49,17 @@ export const translations: Record<string, { id: string; en: string }> = {
     id: 'Konten sosmed yang konsisten dan on-brand, dari feed hingga story.',
     en: 'Consistent, on-brand social media content, from feed posts to stories.',
   },
+  'services.note': {
+    id: 'Saya masih belajar, jadi terbuka untuk proyek kecil.',
+    en: "I'm still learning, so I'm open to small projects.",
+  },
 
   // Projects
   'projects.kicker': { id: '03 — Projects', en: '03 — Projects' },
   'projects.h2': { id: 'Karya yang bicara lewat hasil.', en: 'Work that speaks through results.' },
   'projects.filter.all': { id: 'Semua', en: 'All' },
   'projects.detail': { id: 'Lihat detail', en: 'View details' },
+  'projects.studycase': { id: 'Study case', en: 'Case study' },
 
   // Process
   'process.kicker': { id: '04 — Process', en: '04 — Process' },
@@ -88,6 +91,9 @@ export const translations: Record<string, { id: string; en: string }> = {
   'contact.ph.nama': { id: 'Nama kamu', en: 'Your name' },
   'contact.ph.pesan': { id: 'Ceritakan project atau kebutuhanmu...', en: 'Tell me about your project or needs...' },
   'contact.submit': { id: 'Kirim Pesan', en: 'Send Message' },
+  'contact.err.nama': { id: 'Nama wajib diisi', en: 'Name is required' },
+  'contact.err.email': { id: 'Masukkan email yang valid', en: 'Enter a valid email address' },
+  'contact.err.pesan': { id: 'Pesan wajib diisi', en: 'Message is required' },
   'contact.mailtoNote': {
     id: 'Tombol ini akan membuka aplikasi email kamu dengan pesan yang sudah terisi otomatis.',
     en: 'This button opens your email app with a pre-filled message.',

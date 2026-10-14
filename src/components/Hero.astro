@@ -23,7 +23,7 @@ const { name = 'Muhamad Zaki Abdillah', initials = 'MZ' } = Astro.props;
   <!-- Motif section: asterisk (identitas Hero) -->
   <SectionMotif type="asterisk" class="-right-16 -bottom-20 h-72 w-72 lg:h-96 lg:w-96" />
 
-  <div class="relative mx-auto grid min-h-[90vh] w-full max-w-6xl items-center gap-12 px-5 py-16 md:grid-cols-[1fr_auto] md:gap-16 md:px-8">
+  <div class="relative mx-auto grid min-h-[90vh] w-full max-w-6xl items-center gap-12 px-5 py-16 @container md:grid-cols-[1fr_auto] md:gap-16 md:px-8">
     <div>
       <!-- Kicker editorial: tanpa pill, asterisk kecil sebagai tanda -->
       <p class="reveal mb-8 flex items-center gap-3 text-xs font-medium tracking-[0.25em] text-ink-muted uppercase" data-i18n="hero.kicker">
@@ -33,10 +33,10 @@ const { name = 'Muhamad Zaki Abdillah', initials = 'MZ' } = Astro.props;
         UI/UX &amp; Graphic Designer
       </p>
 
-      <!-- Tipografi raksasa: frasa kunci diberi highlight stabilo -->
-      <h1 class="font-display text-[2.75rem] leading-[1.15] font-bold tracking-tight sm:text-6xl lg:text-[4.25rem]">
-        <span class="reveal block" data-i18n="hero.h1a">Desain yang punya tujuan,</span>
-        <span class="reveal reveal-delay-1 block">
+      <!-- Tipografi raksasa: 2 baris eksplisit, ukuran fluid mengikuti kolom -->
+      <h1 class="hero-title-fluid font-display leading-[1.15] font-bold tracking-tight">
+        <span class="reveal block whitespace-nowrap" data-i18n="hero.h1a">Desain yang punya tujuan,</span>
+        <span class="reveal reveal-delay-1 block whitespace-nowrap">
           <span class="bg-accent-soft px-2 box-decoration-clone" data-i18n="hero.h1b">ide yang diwujudkan.</span>
         </span>
       </h1>
@@ -124,7 +124,7 @@ const { name = 'Muhamad Zaki Abdillah', initials = 'MZ' } = Astro.props;
             <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-40"></span>
             <span class="relative inline-flex h-2.5 w-2.5 rounded-full bg-accent"></span>
           </span>
-          <span class="text-xs font-medium whitespace-nowrap text-ink" data-i18n="hero.badge">Open for freelance</span>
+          <span class="text-xs font-medium whitespace-nowrap text-ink" data-i18n="hero.badge">Terbuka untuk kolaborasi</span>
         </div>
       </div>
     </div>

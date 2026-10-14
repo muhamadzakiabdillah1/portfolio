@@ -131,4 +131,44 @@ const links = [
       menuToggle?.focus();
     }
   });
+
+  // Scrollspy: tandai link nav sesuai section yang terlihat (no-op di halaman case study)
+  const navAnchors = document.querySelectorAll<HTMLAnchorElement>('header nav a[href^="#"]');
+  const spyTargets = ['#about', '#projects', '#contact']
+    .map((sel) => document.querySelector(sel))
+    .filter((el): el is Element => el !== null);
+
+  if (navAnchors.length > 0 && spyTargets.length > 0) {
+    const linkByHash = new Map<string, HTMLAnchorElement[]>();
+    navAnchors.forEach((a) => {
+      const hash = a.getAttribute('href') ?? '';
+      const list = linkByHash.get(hash) ?? [];
+      list.push(a);
+      linkByHash.set(hash, list);
+    });
+
+    function setActive(hash: string) {
+      linkByHash.forEach((links, key) => {
+        const active = key === hash;
+        links.forEach((a) => {
+          a.classList.toggle('text-ink', active);
+          a.classList.toggle('text-ink-muted', !active);
+          a.classList.toggle('font-bold', active);
+          a.classList.toggle('font-medium', !active);
+          if (active) a.setAttribute('aria-current', 'true');
+          else a.removeAttribute('aria-current');
+        });
+      });
+    }
+
+    const spy = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActive(`#${entry.target.id}`);
+        });
+      },
+      { rootMargin: '-40% 0px -55% 0px', threshold: 0 },
+    );
+    spyTargets.forEach((t) => spy.observe(t));
+  }
 </script>

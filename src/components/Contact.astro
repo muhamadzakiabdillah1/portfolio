@@ -36,6 +36,7 @@ const instagram = 'muhamadzaakkii';
           data-i18n-placeholder="contact.ph.nama"
           class="h-12 w-full rounded-xl border border-line bg-surface px-4 text-sm transition-colors duration-200 placeholder:text-ink-muted/60 focus:border-accent"
         />
+        <p id="err-nama" class="mt-2 hidden text-sm font-medium text-accent" role="alert" data-i18n="contact.err.nama">Nama wajib diisi</p>
       </div>
 
       <div>
@@ -50,6 +51,7 @@ const instagram = 'muhamadzaakkii';
           data-i18n-placeholder="contact.ph.email"
           class="h-12 w-full rounded-xl border border-line bg-surface px-4 text-sm transition-colors duration-200 placeholder:text-ink-muted/60 focus:border-accent"
         />
+        <p id="err-email" class="mt-2 hidden text-sm font-medium text-accent" role="alert" data-i18n="contact.err.email">Masukkan email yang valid</p>
       </div>
 
       <div>
@@ -62,6 +64,7 @@ const instagram = 'muhamadzaakkii';
           placeholder="Ceritakan project atau kebutuhanmu..."
           data-i18n-placeholder="contact.ph.pesan"
           class="w-full rounded-xl border border-line bg-surface px-4 py-3 text-sm transition-colors duration-200 placeholder:text-ink-muted/60 focus:border-accent"></textarea>
+        <p id="err-pesan" class="mt-2 hidden text-sm font-medium text-accent" role="alert" data-i18n="contact.err.pesan">Pesan wajib diisi</p>
       </div>
 
 <button
@@ -136,26 +139,59 @@ const instagram = 'muhamadzaakkii';
 <script>
   const form = document.getElementById('contact-form') as HTMLFormElement | null;
 
+  type FieldDef = { input: string; error: string; valid: (v: string) => boolean };
+
+  const fields: FieldDef[] = [
+    { input: 'nama', error: 'err-nama', valid: (v) => v.trim().length > 0 },
+    {
+      input: 'email',
+      error: 'err-email',
+      valid: (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()),
+    },
+    { input: 'pesan', error: 'err-pesan', valid: (v) => v.trim().length > 0 },
+  ];
+
+  function fieldEl(id: string) {
+    return document.getElementById(id) as HTMLInputElement | HTMLTextAreaElement | null;
+  }
+
+  // Error inline di bawah field (menggantikan alert) + penanda ARIA
+  function setError(inputId: string, errorId: string, show: boolean): boolean {
+    const input = fieldEl(inputId);
+    const error = document.getElementById(errorId);
+    error?.classList.toggle('hidden', !show);
+    input?.classList.toggle('border-accent', show);
+    input?.classList.toggle('ring-1', show);
+    input?.classList.toggle('ring-accent/30', show);
+    input?.setAttribute('aria-invalid', String(show));
+    if (input) {
+      if (show) input.setAttribute('aria-describedby', errorId);
+      else input.removeAttribute('aria-describedby');
+    }
+    return !show;
+  }
+
+  // Bersihkan error saat pengguna mengetik ulang
+  fields.forEach(({ input, error }) => {
+    fieldEl(input)?.addEventListener('input', () => setError(input, error, false));
+  });
+
   form?.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    // Validasi custom sebelum submit
-    const nama = (form.querySelector('#nama') as HTMLInputElement).value.trim();
-    const emailPengirim = (form.querySelector('#email') as HTMLInputElement).value.trim();
-    const pesan = (form.querySelector('#pesan') as HTMLTextAreaElement).value.trim();
+    let firstInvalid: string | null = null;
+    fields.forEach(({ input, error, valid }) => {
+      const ok = setError(input, error, !valid(fieldEl(input)?.value ?? ''));
+      if (!ok && firstInvalid === null) firstInvalid = input;
+    });
+    if (firstInvalid !== null) {
+      fieldEl(firstInvalid)?.focus();
+      return;
+    }
 
-    if (!nama) {
-      alert('Nama wajib diisi');
-      return;
-    }
-    if (!emailPengirim || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailPengirim)) {
-      alert('Format email tidak valid');
-      return;
-    }
-    if (!pesan) {
-      alert('Pesan wajib diisi');
-      return;
-    }
+    const nama = (fieldEl('nama')?.value ?? '').trim();
+    const emailPengirim = (fieldEl('email')?.value ?? '').trim();
+    const pesan = (fieldEl('pesan')?.value ?? '').trim();
 
     const subject = encodeURIComponent(`Halo Zaki, saya ${nama}`);
     const body = encodeURIComponent(`${pesan}\n\n— ${nama} (${emailPengirim})`);

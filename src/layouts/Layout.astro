@@ -11,6 +11,9 @@ const {
   description =
     'Portofolio Muhamad Zaki Abdillah. Desain yang punya tujuan, ide yang diwujudkan. Terbuka untuk proyek freelance.',
 } = Astro.props;
+
+// Sticky CTA mobile hanya di beranda (halaman case study tidak punya #contact)
+const isHome = Astro.url.pathname === '/';
 ---
 
 <!doctype html>
@@ -26,6 +29,17 @@ const {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="https://muhamadzaki-portfolio.vercel.app/og-image.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Muhamad Zaki Abdillah — UI/UX & Graphic Designer"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
     <link rel="preconnect" href="https://api.fontshare.com" />
     <link
       href="https://api.fontshare.com/v2/css?f[]=satoshi@700,600,500&f[]=general-sans@400,500&display=swap"
@@ -50,6 +64,26 @@ const {
   </head>
   <body class="bg-bg font-body text-ink antialiased">
     <slot />
+
+    {isHome && (
+      <a
+        href="#contact"
+        class="fixed inset-x-4 bottom-[max(1rem,env(safe-area-inset-bottom))] z-30 inline-flex h-12 cursor-pointer items-center justify-center gap-2 rounded-full bg-accent text-sm font-medium text-white shadow-[0_8px_24px_-8px] shadow-accent/25 transition-colors duration-200 hover:bg-ink md:hidden dark:text-bg"
+      >
+        <span data-i18n="hero.cta2">Hubungi Saya</span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-4 w-4"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+          aria-hidden="true"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12l-7.5 7.5M21 12H3"></path>
+        </svg>
+      </a>
+    )}
 
     <script>
       import { translations, type Lang } from '../i18n/dictionary';

@@ -35,6 +35,19 @@
   --color-line: #2c2c2e;
 }
 
+/* Hero H1 fluid: 7.9cqi dari lebar kolom teks (hasil ukur Satoshi Bold:
+   baris terpanjang 12.285em) sehingga selalu pas 2 baris tanpa wrap liar. */
+.hero-title-fluid {
+  font-size: clamp(1.6rem, 7.9cqi, 4.25rem);
+}
+
+/* Fallback browser lama tanpa cqi/container queries */
+@supports not (font-size: 1cqi) {
+  .hero-title-fluid {
+    font-size: clamp(2rem, 8vw, 4rem);
+  }
+}
+
 /* Reveal on load — 1 animasi kunci per view (ux-guidelines) */
 @keyframes reveal-up {
   from {
